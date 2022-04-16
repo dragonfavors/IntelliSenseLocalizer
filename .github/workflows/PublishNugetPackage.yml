@@ -4,7 +4,6 @@ on:
   push:
     tags:        
       - v*.*.**
-    branches: [ main ]
 
 jobs:
   publish-with-build:
@@ -18,7 +17,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: build
-      run: dotnet build -c Release ./src/IntelliSenseLocalizer/IntelliSenseLocalizer.csproj
+      run: dotnet build -c Release
     - name: pack
       run: dotnet pack -c Release -o ./output
     - name: push package
